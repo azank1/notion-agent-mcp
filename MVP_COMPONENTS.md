@@ -1,9 +1,9 @@
 # Notion Agent MCP - MVP Component Tracking
 
-**Branch**: mvp/core  
+**Branch**: main  
 **Status**: In Development  
 **Target**: Standalone MCP server for Notion integration  
-**Integration Status**: Isolated (not yet integrated with metaorcha-emerge)
+**Integration Status**: Isolated (not yet integrated with MetaOrcha platform)
 
 ---
 

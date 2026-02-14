@@ -38,9 +38,6 @@ Before starting development, please:
 git clone https://github.com/azank1/notion-agent-mcp.git
 cd notion-agent-mcp
 
-# Checkout develop branch
-git checkout develop
-
 # Install dependencies
 npm install
 
@@ -50,7 +47,6 @@ cp .env.example .env
 
 # Build and verify
 npm run build
-npm test
 ```
 
 ---
@@ -330,22 +326,12 @@ npm test -- create-page.test.ts
 
 ### Branch Strategy
 
-```
-main                    # Production releases only
-  ↑
-develop                 # Integration branch
-  ↑
-mvp/core               # Active MVP development
-  ↑
-feature/tool-name      # Individual features
-```
+Single-branch development on `main` for MVP phase. Branch management will align with metaorcha-control and metaorcha-emerge repository workflows as the project matures.
 
-### Branch Naming
-
+Feature branches may be created for specific work:
 - `feature/tool-name` - New tool implementations
 - `fix/bug-description` - Bug fixes
 - `docs/update-description` - Documentation updates
-- `test/test-description` - Test additions
 
 ### Commit Messages
 
@@ -387,12 +373,11 @@ test(tools): add unit tests for create_page
 
 ### Before Submitting PR
 
-1. **Branch from develop**: `git checkout -b feature/your-feature`
-2. **Write tests**: Ensure 80% coverage
+1. **Branch from main**: `git checkout -b feature/your-feature`
+2. **Write tests**: Ensure adequate test coverage
 3. **Run all checks**:
    ```bash
    npm run build   # Must succeed
-   npm test        # All tests pass
    npm run lint    # No lint errors
    ```
 4. **Update documentation**: README.md, MVP_COMPONENTS.md if needed
@@ -439,8 +424,8 @@ Closes #123
 
 ### Review Process
 
-1. Submit PR to `develop` branch
-2. Automated checks run (build, tests, lint)
+1. Submit PR to `main` branch
+2. Automated checks run (if configured)
 3. Code review by maintainer
 4. Address feedback
 5. Approval and merge

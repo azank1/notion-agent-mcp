@@ -1,44 +1,47 @@
 # Notion Agent MCP Server
 
-An MCP (Model Context Protocol) server that enables LLMs to interact with Notion workspaces.
+Model Context Protocol (MCP) server for Notion workspace integration.
 
-## 🎯 Overview
+## Overview
 
-This is a standalone MCP server that exposes Notion operations as tools that can be called by AI assistants like Claude Desktop, VAPI, or any MCP-compatible client.
+Standalone MCP server that enables AI assistants (Claude Desktop, VAPI, etc.) to interact with Notion workspaces through structured tool calls.
 
-**Status**: MVP Development (Branch: `mvp/core`)  
+**Status**: MVP Development  
 **Version**: 0.1.0-mvp  
-**Integration**: Isolated (not yet integrated with MetaOrcha)
+**Integration**: Isolated (not yet integrated with MetaOrcha platform)
 
-## 🚀 Features
+## Features
 
-### MVP Tools (v0.1.0)
+### Implemented Tools
 
-- ✅ **create_page** - Create rich Notion pages with formatted content
-- 🔄 **update_page** - Update existing pages (coming soon)
-- 🔄 **query_database** - Query Notion databases (coming soon)
-- 🔄 **search** - Search across workspace (coming soon)
-- 🔄 **add_chart** - Embed TradingView charts (coming soon)
+- **create_page** - Create Notion pages with rich formatted content
 
-## 📦 Installation
+### Planned Tools
+
+- **update_page** - Update existing page content and properties
+- **query_database** - Query Notion databases with filters and sorting
+- **search** - Search across workspace for pages and databases
+- **add_chart** - Embed TradingView charts in pages
+
+## Installation
 
 ```bash
-# Clone the repository
+# Clone repository
 git clone https://github.com/azank1/notion-agent-mcp.git
 cd notion-agent-mcp
-
-# Checkout MVP branch
-git checkout mvp/core
 
 # Install dependencies
 npm install
 
-# Set up environment
+# Configure environment
 cp .env.example .env
 # Edit .env and add your NOTION_API_KEY
+
+# Build project
+npm run build
 ```
 
-## 🔧 Configuration
+## Configuration
 
 ### Environment Variables
 
@@ -62,7 +65,7 @@ LOG_LEVEL=info
 4. Copy the "Internal Integration Token"
 5. Share your database/page with the integration
 
-## 🎮 Usage
+## Usage
 
 ### Development Mode
 
@@ -90,7 +93,7 @@ npm run test:watch
 npm run test:integration
 ```
 
-## 🤖 Using with Claude Desktop
+## Using with Claude Desktop
 
 1. Build the project:
    ```bash
@@ -125,7 +128,7 @@ npm run test:integration
    "Create a research note about Bitcoin in my Notion workspace"
    ```
 
-## 📚 API Documentation
+## API Documentation
 
 ### create_page
 
@@ -159,7 +162,7 @@ Creates a new Notion page with rich content.
 }
 ```
 
-## 🏗️ Development
+## Development
 
 ### Project Structure
 
@@ -174,7 +177,7 @@ notion-agent-mcp/
 │   └── tools/                # MCP tools
 │       ├── create-page.ts
 │       └── index.ts
-├── tests/                    # Test files
+├── tests/                    # Test files (planned)
 ├── package.json
 ├── tsconfig.json
 └── README.md
@@ -182,10 +185,7 @@ notion-agent-mcp/
 
 ### Branch Strategy
 
-- `main` - Production releases only
-- `develop` - Integration branch
-- `mvp/core` - MVP development (active)
-- `feature/*` - Feature branches
+Single-branch development on `main` for MVP phase. Feature branches will be created as needed, aligned with metaorcha-control and metaorcha-emerge repository workflows.
 
 ### Adding a New Tool
 
@@ -195,7 +195,7 @@ notion-agent-mcp/
 4. Add to `src/tools/index.ts`
 5. Add tests in `tests/unit/tools/`
 
-## 🧪 Testing
+## Testing
 
 ### Unit Tests
 
@@ -217,7 +217,7 @@ export TEST_NOTION_DATABASE_ID=your-test-db-id
 npm run test:integration
 ```
 
-## 🚀 Deployment
+## Deployment
 
 ### Railway (Recommended for MVP)
 
@@ -234,7 +234,7 @@ railway init
 railway up
 ```
 
-## 📋 MVP Completion Checklist
+## MVP Status
 
 - [x] Project setup and TypeScript configuration
 - [x] MCP protocol implementation
@@ -250,28 +250,22 @@ railway up
 - [ ] Railway deployment
 - [ ] Performance benchmarks
 
-## 🔗 Integration with MetaOrcha
+## Integration with MetaOrcha
 
-**Status**: 🔒 Blocked until MVP complete
+**Status**: Blocked until MVP complete
 
-This agent is being developed in isolation. Integration with the MetaOrcha orchestration platform will happen after:
+This agent is being developed in isolation. Integration with MetaOrcha orchestration platform will happen after MVP validation and spec approval.
 
-1. ✅ All MVP tools implemented
-2. ✅ Tests passing
-3. ✅ Deployed to Railway
-4. ✅ Tested with Claude Desktop
-5. ✅ Spec approval
+See [METAORCHA_INTEGRATION.md](METAORCHA_INTEGRATION.md) for details.
 
-See `INTEGRATION_PLAN.md` for details.
+## Contributing
 
-## 📄 License
+See [CONTRIBUTING.md](CONTRIBUTING.md) for development guidelines.
+
+## License
 
 MIT
 
-## 👤 Author
-
-azank1
-
-## 🐛 Issues
+## Issues
 
 Report issues at: https://github.com/azank1/notion-agent-mcp/issues

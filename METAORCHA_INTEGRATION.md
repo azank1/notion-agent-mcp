@@ -2,13 +2,15 @@
 
 **Repository**: notion-agent-mcp  
 **Integration Target**: metaorcha-emerge Gateway  
-**Status**: 🔒 **BLOCKED** - MVP must be complete before integration
+**Status**: Blocked - MVP must be complete before integration
 
 ---
 
 ## Integration Status: NOT APPROVED
 
-**Current Decision**: Develop Notion agent in **COMPLETE ISOLATION** until proven functional.
+**Current Decision**: Develop Notion agent in complete isolation until proven functional.
+
+Branch management will align with metaorcha-control and metaorcha-emerge workflows as integration approaches.
 
 ### Approval Requirements
 Before this agent can be integrated into MetaOrcha:
